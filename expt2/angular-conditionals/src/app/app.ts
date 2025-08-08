@@ -1,10 +1,12 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,CommonModule],
+  imports: [RouterOutlet,CommonModule,FormsModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -16,6 +18,7 @@ export class App {
   username='user1';
   password='1234';
   courses=['Angular.js','MongoDB'];
+  selectedCourse=''
   login(username:string,password:string){
     this.login_attempted=true;
     if (username===this.username){
