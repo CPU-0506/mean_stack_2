@@ -12,8 +12,10 @@ export class App {
   protected readonly title = signal('angular-conditionals');
   login_success=false;
   login_attempted=false;
+  courses_available=false;
   username='user1';
-  password='secret_password';
+  password='1234';
+  courses=['Angular.js','MongoDB'];
   login(username:string,password:string){
     this.login_attempted=true;
     if (username===this.username){
@@ -23,5 +25,8 @@ export class App {
             this.login_success=true;
         }
     }
+  }
+  show_courses(){
+    this.courses_available=this.courses_available===true?false:true;
   }
 }
