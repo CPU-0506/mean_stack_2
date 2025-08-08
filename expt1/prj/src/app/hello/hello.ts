@@ -7,5 +7,8 @@ import { Component } from '@angular/core';
   styleUrl: './hello.css'
 })
 export class Hello {
-
+course="Angular.js"
+change(){
+    this.course==="MongoDB"?this.course='Angular.js':this.course='MongoDB';
+}
 }
