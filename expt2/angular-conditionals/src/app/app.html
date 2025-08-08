@@ -18,13 +18,23 @@
         <p>Invalid Login!!! Please try again...</p>
     </ng-template>
 </div>
-<ng-template #login_not_attempted class="login_form">
-    <label for="username">Username : </label>
-    <input #username_input name="username" type="text" required>
-    <br>
-    <label for="password">Password : </label>
-    <input #password_input name="password" type="password" required>
-    <br>
-    <button (click)="login(username_input.value,password_input.value)">Login</button>
+<ng-template #login_not_attempted>
+    <div *repeat="times" class="login_form">
+        <label for="username">Username : </label>
+        <input #username_input name="username" type="text" required>
+        <br>
+        <label for="password">Password : </label>
+        <input #password_input name="password" type="password" required>
+        <br>
+        <button (click)="login(username_input.value,password_input.value)">Login</button>
+        
+        <div class="login-game">
+            <p>Bored?.. Don't know login credentials..?</p>
+            <label for="times_input">Enter a number of times to repeat the login form</label>
+            <input #repeat_times type="number" name="times_input">
+            <p>Click <b class="button" (click)="set_times(+repeat_times.value)">here</b> to repeat</p>
+        </div>
+    </div>
 </ng-template>
+
 <router-outlet />
