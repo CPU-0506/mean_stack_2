@@ -9,5 +9,5 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   protected readonly title = signal('binding');
-  imgURL:string='favicon.ico';
+  colspanValue:string='2';
 }
