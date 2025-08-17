@@ -9,5 +9,13 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   protected readonly title = signal('binding');
-  colspanValue:string='2';
+  isValid:boolean=false;
+  validate() {
+  if(this.isValid==true){
+    console.log("Already validated!..");
+  }else{
+  console.log("Validating automatically..!");
+  this.isValid=true;
+  }
+  }
 }

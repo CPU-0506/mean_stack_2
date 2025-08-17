@@ -1,13 +1,3 @@
-<table border=1>
-    <tr>
-        <td [attr.colspan]="colspanValue"> First </td>
-        <td>Second</td>
-    </tr>
-    <tr>
-        <td>Third</td>
-        <td>Fourth</td>
-        <td>Fifth</td>
-    </tr>
-</table>
-
+<p [style.color]="isValid? 'green' : 'red'">This is style-bound paragraph</p>
+<button (click)="validate()">Validate</button>
 <router-outlet />
