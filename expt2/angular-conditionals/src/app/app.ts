@@ -1,13 +1,13 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CommonModule } from '@angular/common';
+
 import { FormsModule } from '@angular/forms';
 import { Repeat } from './repeat';
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,CommonModule,FormsModule,Repeat],
+  imports: [RouterOutlet, FormsModule, Repeat],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
