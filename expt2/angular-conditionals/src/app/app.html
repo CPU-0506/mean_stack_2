@@ -1,19 +1,21 @@
-<div *ngIf="login_attempted; else login_not_attempted" class="login_message">
-    <div *ngIf="login_success; else login_failure">
+@if (login_attempted) {
+  <div class="login_message">
+    @if (login_success) {
+      <div>
         <p>Successfully Logged in!</p>
         <p>Welcome! {{username}}</p>
-    </div>
-    <ng-template #login_failure>
-        <p>Invalid Login!!! Please try again...</p>
-    </ng-template>
-</div>
-<ng-template #login_not_attempted class="login_form">
-    <label for="username">Username : </label>
-    <input #username_input name="username" type="text" required>
-    <br>
+      </div>
+    } @else {
+      <p>Invalid Login!!! Please try again...</p>
+    }
+  </div>
+} @else {
+  <label for="username">Username : </label>
+  <input #username_input name="username" type="text" required>
+  <br>
     <label for="password">Password : </label>
     <input #password_input name="password" type="text" required>
     <br>
-    <button (click)="login(username_input.value,password_input.value)">Login</button>
-</ng-template>
-<router-outlet />
+      <button (click)="login(username_input.value,password_input.value)">Login</button>
+    }
+    <router-outlet />
