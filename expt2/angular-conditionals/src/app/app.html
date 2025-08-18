@@ -1,30 +1,40 @@
-<div *ngIf="login_attempted; else login_not_attempted" class="login_message">
-    <div *ngIf="login_success; else login_failure">
+@if (login_attempted) {
+  <div class="login_message">
+    @if (login_success) {
+      <div>
         <p>Successfully Logged in!</p>
         <p>Welcome! {{username}}</p>
         <p>Select course from dropdown to view description</p>
         <div class="courses_selection_div">
-            <label for="courses_selection"></label>
-            <select name="courses_selection" id="courses_selection" [(ngModel)]="selectedCourse">
-                <option value="{{course}}" *ngFor="let course of courses">{{course}}</option>
-            </select>
-            <div [ngSwitch]="selectedCourse">
-                <p *ngSwitchCase="'Angular.js'">Angular is a javascript framework</p>
-                <p *ngSwitchCase="'MongoDB'">MongoDB is a database, used in backend</p>
-            </div>
+          <label for="courses_selection"></label>
+          <select name="courses_selection" id="courses_selection" [(ngModel)]="selectedCourse">
+            @for (course of courses; track course) {
+              <option value="{{course}}">{{course}}</option>
+            }
+          </select>
+          <div>
+            @switch (selectedCourse) {
+              @case ('Angular.js') {
+                <p>Angular is a javascript framework</p>
+              }
+              @case ('MongoDB') {
+                <p>MongoDB is a database, used in backend</p>
+              }
+            }
+          </div>
         </div>
-    </div>
-    <ng-template #login_failure>
-        <p>Invalid Login!!! Please try again...</p>
-    </ng-template>
-</div>
-<ng-template #login_not_attempted class="login_form">
-    <label for="username">Username : </label>
-    <input #username_input name="username" type="text" required>
-    <br>
+      </div>
+    } @else {
+      <p>Invalid Login!!! Please try again...</p>
+    }
+  </div>
+} @else {
+  <label for="username">Username : </label>
+  <input #username_input name="username" type="text" required>
+  <br>
     <label for="password">Password : </label>
     <input #password_input name="password" type="password" required>
     <br>
-    <button (click)="login(username_input.value,password_input.value)">Login</button>
-</ng-template>
-<router-outlet />
+      <button (click)="login(username_input.value,password_input.value)">Login</button>
+    }
+    <router-outlet />
