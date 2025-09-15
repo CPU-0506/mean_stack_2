@@ -1,2 +1,9 @@
+<button (click)="show()">Show</button>
+
+@if(showVar){
+    <p>Product code is : {{code | lowercase}}</p>
+    <p>Product name is : {{name | uppercase}}</p>
+}
+
 
 <router-outlet />
