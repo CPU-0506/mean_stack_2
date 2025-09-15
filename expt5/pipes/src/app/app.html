@@ -1,10 +1,7 @@
-<button (click)="show()">Show</button>
+<button (click)="show()">Show Courses</button>
 
 @if(showVar){
-    <p>Product code is : {{product_details[0]['id'] | lowercase}}</p>
-    <p>Product name is : {{product_details[0]['name'] | uppercase}}</p>
-    <p>Product cost is : {{product_details[0]['price'] | currency:'INR'}}</p>
-    <p>Product manufacturing date is : {{product_details[0]['mfg_date'] | date:'full'}}</p>
+    <app-course-list/>
 }
 
 <router-outlet />
