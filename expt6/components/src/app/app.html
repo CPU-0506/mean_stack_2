@@ -1,0 +1,10 @@
+<select name="dropdown" id="dropdown" #dropdown>
+    <option value="sub-1">course 1</option>
+    <option value="sub-2">course 2</option>
+    <option value="sub-3">course 3</option>
+    <option value="sub-4">course 4</option>
+</select>
+<button (click)="submit(dropdown.value)">Submit</button>
+
+<app-course-list [course_name]="sub_name"></app-course-list>
+<router-outlet />

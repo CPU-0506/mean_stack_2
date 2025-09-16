@@ -1,0 +1,6 @@
+<h2>Course list page</h2>
+@for(course of course_details; track course.name){
+    @if(course.id==course_name){
+        <p>Course <i>{{course.name}}</i> belongs to branch <i>{{course.branch}}</i></p>
+    }
+}
