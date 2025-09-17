@@ -1,12 +1,10 @@
 import { Component, signal, OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy, SimpleChanges } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { EmulatedCard } from './emulated-card/emulated-card';
-import { NoneCard } from './none-card/none-card';
-import { ShadowCard } from './shadow-card/shadow-card';
+import { CourseList } from './course-list/course-list';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,EmulatedCard,NoneCard,ShadowCard],
+  imports: [RouterOutlet,CourseList],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
