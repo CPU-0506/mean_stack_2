@@ -1,0 +1,17 @@
+<label for="book_name">Fetch specific book : </label>
+<select name="book_name" id="book_name" #book_id>
+    @for (book of book_details; track book) {
+        <option value="{{book.id}}">{{book.name}}</option>
+    }
+</select>
+
+<button (click)="fetchBook(book_id.value )">Fetch</button>
+
+@if (fetchedBook) {
+    <div>
+        <h3>Book Details</h3>
+        <p><strong>ID:</strong> {{fetchedBook.id}}</p>
+        <p><strong>Name:</strong> {{fetchedBook.name}}</p>
+        <p><strong>Author:</strong> {{fetchedBook.author}}</p>
+    </div>
+}

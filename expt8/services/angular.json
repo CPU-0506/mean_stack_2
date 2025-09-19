@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "forms": {
+    "services": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -56,10 +56,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "forms:build:production"
+              "buildTarget": "services:build:production"
             },
             "development": {
-              "buildTarget": "forms:build:development"
+              "buildTarget": "services:build:development"
             }
           },
           "defaultConfiguration": "development"
