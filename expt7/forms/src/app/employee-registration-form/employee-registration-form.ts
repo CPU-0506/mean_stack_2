@@ -1,6 +1,7 @@
 import { JsonPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { EmailValidator } from '../email-validator';
 
 @Component({
   selector: 'app-employee-registration-form',
@@ -12,6 +13,6 @@ export class EmployeeRegistrationForm {
     empForm= new FormGroup({
         firstname: new FormControl('',Validators.required),
         lastname: new FormControl('',Validators.required),
-        email: new FormControl('',[Validators.required,Validators.email])
+        email: new FormControl('',[Validators.required,EmailValidator(/[a-zA-Z]+@[a-zA-Z]+\.[a-zA-Z]{2,}/i)])
     });
 }
