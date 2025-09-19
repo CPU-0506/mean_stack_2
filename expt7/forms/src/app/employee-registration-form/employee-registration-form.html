@@ -1,0 +1,46 @@
+<div>
+    <h1>Employee Registration Form</h1>
+    <form action="" [formGroup]="empForm">
+
+        <div class="form-group">
+            <label for="first-name">First Name </label>
+            <input type="text"
+                class="form-control"
+                name="first-name"
+                formControlName="firstname">
+            <div [hidden]="empForm.controls['firstname'].valid || empForm.controls['firstname'].pristine" class="alert alert-danger">
+                First name is required
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="last-name">Last Name</label>
+            <input type="text"
+                class="form-control"
+                name="last-name"
+                formControlName="lastname">
+            <div [hidden]="empForm.controls['lastname'].valid || empForm.controls['lastname'].pristine" class="alert alert-danger">
+                Last name is required
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email"
+                class="form-control"
+                name="email"
+                formControlName="email">
+            <div [hidden]="empForm.controls['email'].valid || empForm.controls['email'].pristine" class="alert alert-danger">
+                Email is required
+            </div>
+        </div>
+
+        <button class="btn btn-success"
+            type="submit"
+            [disabled]="!empForm.valid">
+            Submit
+        </button>
+    </form>
+</div>
+
+<p>Form value : {{empForm.value | json }}</p>
