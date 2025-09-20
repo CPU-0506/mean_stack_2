@@ -16,6 +16,8 @@ export class App {
     this.sub_name=name;
   }
   receive_registration($event:string){
-    this.registered_courses.push($event);
+    if (!this.registered_courses.includes($event)) {
+      this.registered_courses.push($event);
+    }
   }
 }
