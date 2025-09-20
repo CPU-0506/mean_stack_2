@@ -1,17 +1,19 @@
 <label for="book_name">Fetch specific book : </label>
-<select name="book_name" id="book_name" #book_id>
+<select name="book_name" id="book_name" #book_id disabled>
     @for (book of book_details; track book) {
         <option value="{{book.id}}">{{book.name}}</option>
     }
 </select>
 
-<button (click)="fetchBook(book_id.value )">Fetch</button>
+<button disabled>Fetch</button>
 
-@if (fetchedBook) {
+@if (book_details && book_details.length>0) {
     <div>
         <h3>Book Details</h3>
-        <p><strong>ID:</strong> {{fetchedBook.id}}</p>
-        <p><strong>Name:</strong> {{fetchedBook.name}}</p>
-        <p><strong>Author:</strong> {{fetchedBook.author}}</p>
+        <p><strong>ID:</strong> {{book_details[counter()%book_details.length].id}}</p>
+        <p><strong>Name:</strong> {{book_details[counter()%book_details.length].name}}</p>
+        <p><strong>Author:</strong> {{book_details[counter()%book_details.length].author}}</p>
     </div>
 }
+
+Counter: {{counter()}}

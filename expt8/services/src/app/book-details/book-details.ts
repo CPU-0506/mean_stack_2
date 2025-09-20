@@ -1,5 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { Book } from '../book';
+import { interval } from 'rxjs';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-book-details',
@@ -8,12 +11,10 @@ import { Book } from '../book';
   styleUrl: './book-details.css'
 })
 export class BookDetails {
-  private book = inject(Book);
-  book_details = this.book.fetch_all();
-  fetchedBook: any = null;
+    private book = inject(Book);
+    book_details = this.book.fetch_all();
+    fetchedBook: any = null;
 
-  fetchBook(id:string) {
-      this.fetchedBook = this.book_details?.find(book => book.id == Number(id)) ?? null;
-      console.log('fetchedBook:', this.fetchedBook);
-    }
+    counterObservable=interval(1000);
+    counter=toSignal(this.counterObservable, {initialValue:0});
 }
